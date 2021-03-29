@@ -6,13 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="299sp"
+        android:layout_height="280sp"
+        android:contentDescription="Lifeline Logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201"
+        app:srcCompat="@drawable/drop_vector" />
+
     <TextView
+        android:id="@+id/Head1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:fontFamily="@font/lato"
+        android:text="Welcome to"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/Head2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/Head2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_black"
+        android:text="Lifeline"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/Head3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.662" />
+
+    <TextView
+        android:id="@+id/Head3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="131dp"
+        android:layout_marginBottom="43dp"
+        android:fontFamily="@font/lato"
+        android:text="Save a life with the blood you've been gifted"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/RegisterBtn"
+        android:layout_width="199dp"
+        android:layout_height="49dp"
+        android:background="@drawable/rounded_corners"
+        android:text="REGISTER"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:backgroundTint="#FF5555"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <TextView
+        android:id="@+id/Head4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:text="Already have an account ?"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterBtn"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <TextView
+        android:id="@+id/SignInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/lato"
+        android:text="Sign in"
+        android:textColor="#FF5555"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Head4"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
