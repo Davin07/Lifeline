@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Lifeline</string>
+    <string name="Welcome">Welcome to</string>
+    <string name="lifeline">Lifeline</string>
+    <string name="Save">Save a life with the blood you\'ve been gifted</string>
+    <string name="lifeline_logo">Lifeline Logo</string>
+    <string name="register">REGISTER</string>
+    <string name="already_have_an_account">Already have an account ?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="welcome2">Welcome to</string>
 </resources>

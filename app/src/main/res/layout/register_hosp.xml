@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Welcome to -->
+        <TextView
+            android:id="@+id/Register_Donor_Welcome"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="133dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/welcome2"
+            android:textSize="28sp" />
+
+        <!-- Lifeline Red -->
+        <TextView
+            android:id="@+id/Register_Donor_Lifeline2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/lifeline"
+            android:textColor="#FF5555"
+            android:textSize="28dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="133dp"
+            android:layout_marginLeft="195dp"/>
+
+        <!-- Save a life line -->
+        <TextView
+            android:id="@+id/Register_Donor_save2"
+            android:layout_width="321dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/Save"
+            android:textSize="18dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="173dp"
+            android:lines="2"/>
+
+        <Button
+            android:id="@+id/DonorRegisterBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="630dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/lato_black"
+            android:hapticFeedbackEnabled="true"
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#FF5555" />
+
+        <EditText
+            android:id="@+id/Register_Donor_name"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="285dp"
+            android:hint="Name"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/hospital"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp" />
+
+        <EditText
+            android:id="@+id/Register_Donor_email"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Email"
+            android:layout_below="@+id/Register_Donor_name"
+            android:layout_marginTop="10dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/email"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp"/>
+
+        <EditText
+            android:id="@+id/Register_Donor_password"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Password"
+            android:layout_below="@+id/Register_Donor_email"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/password"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

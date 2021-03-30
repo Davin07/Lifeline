@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".register_donor"/>
+        <activity android:name=".register_hosp"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
