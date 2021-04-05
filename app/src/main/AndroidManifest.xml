@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".register_donor"/>
         <activity android:name=".register_hosp"/>
+        <activity android:name=".donor_home"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
