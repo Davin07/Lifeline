@@ -8,4 +8,8 @@
     <string name="already_have_an_account">Already have an account ?</string>
     <string name="sign_in">Sign in</string>
     <string name="welcome2">Welcome to</string>
+    <string name="health">Health Vector</string>
+    <string name="SignIN">Sign in</string>
+    <string name="Forgot">Forgot Password ?</string>
+    <string name="SignUP">Sign Up</string>
 </resources>

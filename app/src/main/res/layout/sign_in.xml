@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Welcome to -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="410sp"
+        android:contentDescription="@string/health"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201"
+        app:srcCompat="@drawable/healthvector"/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="410sp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/card" />
+
+    <EditText
+        android:id="@+id/SignIn_email"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/SignInHeader"
+        android:layout_marginTop="40dp"
+        android:hint="Email"
+        android:background="@drawable/edit_round"
+        android:drawableLeft="@drawable/email"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp" />
+
+    <EditText
+        android:id="@+id/SignIn_password"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Password"
+        android:layout_below="@+id/SignIn_email"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_round"
+        android:drawableLeft="@drawable/password"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"/>
+
+    <TextView
+        android:id="@+id/SignInHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="460dp"
+        android:fontFamily="@font/lato_black"
+        android:text="@string/SignIN"
+        android:textSize="32dp" />
+
+    <TextView
+        android:id="@+id/ForgotPass"
+        android:layout_width="154dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="45dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/Forgot"
+        android:textColor="#FF5555"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/SignUp"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="290dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="45dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/SignUP"
+        android:textColor="#FF5555"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginEnd="41dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/button" />
+
+
+</RelativeLayout>

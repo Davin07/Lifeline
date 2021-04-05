@@ -1,12 +1,11 @@
 package com.example.lifeline;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,11 +19,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register_donor extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
-    EditText Register_Donor_name, Register_Donor_email,
+    private FirebaseAuth mAuth;
+    private EditText Register_Donor_name, Register_Donor_email,
             Register_Donor_password, Register_Donor_dob,
             Register_Donor_phoneno, Register_Donor_weight;
-    Button DonorRegisterBtn;
+    private Button DonorRegisterBtn;
+    private ProgressBar progressBar1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class register_donor extends AppCompatActivity {
         Register_Donor_dob = findViewById(R.id.Register_Donor_dob);
         Register_Donor_phoneno = findViewById(R.id.Register_Donor_phoneno);
         Register_Donor_weight = findViewById(R.id.Register_Donor_weight);
+        progressBar1 = findViewById(R.id.progressBar1);
 
         DonorRegisterBtn = findViewById(R.id.DonorRegisterBtn);
         DonorRegisterBtn.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +102,7 @@ public class register_donor extends AppCompatActivity {
             Register_Donor_weight.requestFocus();
             return;
         }
-
+        progressBar1.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_donor.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -114,15 +115,18 @@ public class register_donor extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(register_donor.this, "Donor has been registered Successfully!", Toast.LENGTH_LONG).show();
+                                progressBar1.setVisibility(View.GONE);
                             }
                             else{
                                 Toast.makeText(register_donor.this, "Failed to Register!", Toast.LENGTH_LONG).show();
+                                progressBar1.setVisibility(View.GONE);
                             }
                         }
                     });
                 }
                 else{
                     Toast.makeText(register_donor.this, "Failure!", Toast.LENGTH_LONG).show();
+                    progressBar1.setVisibility(View.GONE);
                 }
             }
         });

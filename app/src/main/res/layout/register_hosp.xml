@@ -44,7 +44,7 @@
             android:lines="2"/>
 
         <Button
-            android:id="@+id/DonorRegisterBtn"
+            android:id="@+id/HospRegisterBtn"
             android:layout_width="225dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -59,7 +59,7 @@
             app:backgroundTint="#FF5555" />
 
         <EditText
-            android:id="@+id/Register_Donor_name"
+            android:id="@+id/Register_Hosp_name"
             android:layout_width="344dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
@@ -72,12 +72,12 @@
             android:drawablePadding="10dp" />
 
         <EditText
-            android:id="@+id/Register_Donor_email"
+            android:id="@+id/Register_Hosp_email"
             android:layout_width="344dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:hint="Email"
-            android:layout_below="@+id/Register_Donor_name"
+            android:layout_below="@+id/Register_Hosp_name"
             android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
             android:background="@drawable/edit_round"
@@ -86,17 +86,26 @@
             android:drawablePadding="10dp"/>
 
         <EditText
-            android:id="@+id/Register_Donor_password"
+            android:id="@+id/Register_Hosp_password"
             android:layout_width="344dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:hint="Password"
-            android:layout_below="@+id/Register_Donor_email"
+            android:layout_below="@+id/Register_Hosp_email"
             android:layout_marginTop="10dp"
             android:inputType="textPassword"
             android:background="@drawable/edit_round"
             android:drawableLeft="@drawable/password"
             android:paddingLeft="10dp"
             android:drawablePadding="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:progressBackgroundTint="#FF5555"/>
 
     </RelativeLayout>
