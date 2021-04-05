@@ -20,11 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register_donor extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private EditText Register_Donor_name, Register_Donor_email,
+    FirebaseAuth mAuth;
+    EditText Register_Donor_name, Register_Donor_email,
             Register_Donor_password, Register_Donor_dob,
             Register_Donor_phoneno, Register_Donor_weight;
-    private Button DonorRegisterBtn;
+    Button DonorRegisterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,14 @@ public class register_donor extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        DonorRegisterBtn = (Button)findViewById(R.id.DonorRegisterBtn);
-        Register_Donor_name = (EditText)findViewById(R.id.Register_Donor_name);
-        Register_Donor_email = (EditText)findViewById(R.id.Register_Donor_email);
-        Register_Donor_password = (EditText)findViewById(R.id.Register_Donor_password);
-        Register_Donor_dob = (EditText)findViewById(R.id.Register_Donor_dob);
-        Register_Donor_phoneno = (EditText)findViewById(R.id.Register_Donor_phoneno);
-        Register_Donor_weight = (EditText)findViewById(R.id.Register_Donor_weight);
+        Register_Donor_name = findViewById(R.id.Register_Donor_name);
+        Register_Donor_email = findViewById(R.id.Register_Donor_email);
+        Register_Donor_password = findViewById(R.id.Register_Donor_password);
+        Register_Donor_dob = findViewById(R.id.Register_Donor_dob);
+        Register_Donor_phoneno = findViewById(R.id.Register_Donor_phoneno);
+        Register_Donor_weight = findViewById(R.id.Register_Donor_weight);
 
+        DonorRegisterBtn = findViewById(R.id.DonorRegisterBtn);
         DonorRegisterBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -102,33 +102,29 @@ public class register_donor extends AppCompatActivity {
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Donor donor = new Donor(name, email, dob, phoneno, weight);
-
-                            FirebaseDatabase.getInstance().getReference("Donors")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(donor).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(register_donor.this, "Donor has been Registered Successfully", Toast.LENGTH_LONG).show();
-                                    }
-                                    else
-                                    {
-                                        Toast.makeText(register_donor.this, "Failed to Register", Toast.LENGTH_LONG).show();
-                                    }
-
-                                }
-                            });
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_donor.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    User user = new User(name, email, dob, phoneno, weight);
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(register_donor.this, "Donor has been registered Successfully!", Toast.LENGTH_LONG).show();
+                            }
+                            else{
+                                Toast.makeText(register_donor.this, "Failed to Register!", Toast.LENGTH_LONG).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(register_donor.this, "Failed to Register. Try Again!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                    });
+                }
+                else{
+                    Toast.makeText(register_donor.this, "Failure!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
