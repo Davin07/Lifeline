@@ -1,9 +1,9 @@
 package com.example.lifeline;
 
-public class User{
+public class Donor{
     public String name, email, dob, phoneno, weight;
 
-    public User(String name, String email, String dob, String phoneno, String weight){
+    public Donor(String name, String email, String dob, String phoneno, String weight){
         this.name = name;
         this.email = email;
         this.dob = dob;

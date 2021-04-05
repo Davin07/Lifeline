@@ -106,10 +106,10 @@ public class register_donor extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(name, email, dob, phoneno, weight);
-                    FirebaseDatabase.getInstance().getReference("Users")
+                    Donor donor = new Donor(name, email, dob, phoneno, weight);
+                    FirebaseDatabase.getInstance().getReference("Donors")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            .setValue(donor).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
