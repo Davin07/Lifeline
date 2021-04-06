@@ -2,19 +2,48 @@ package com.example.lifeline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignIn extends AppCompatActivity {
 
     private TextView SignUp;
+    private EditText SignIn_email, SignIn_password;
+    private ImageView SignInBtn;
+    private ProgressBar progressBar;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
+
+        mAuth = FirebaseAuth.getInstance();
+        SignIn_email = findViewById(R.id.SignIn_email);
+        SignIn_password = findViewById(R.id.SignIn_password);
+        SignInBtn = findViewById(R.id.SignInBtn);
+        progressBar = findViewById(R.id.progressBar);
+
+        SignInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userLogin();
+            }
+        });
 
         SignUp = findViewById(R.id.SignUp);
 
@@ -23,6 +52,50 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignIn.this, register_hosp.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void userLogin(){
+
+        String email = SignIn_email.getText().toString().trim();
+        String password = SignIn_password.getText().toString().trim();
+
+        if (email.isEmpty()){
+            SignIn_email.setError("Email is Required");
+            SignIn_email.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            SignIn_email.setError("Please provide a valid email address");
+            SignIn_email.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()){
+            SignIn_password.setError("Password is Required");
+            SignIn_password.requestFocus();
+            return;
+        }
+        if(password.length()<6){
+            SignIn_password.setError("Password must be at least 6 characters");
+            SignIn_password.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //Redirect
+                    Intent intent = new Intent(SignIn.this, donor_home.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(SignIn.this, "Failed To Login", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

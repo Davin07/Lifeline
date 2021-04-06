@@ -12,4 +12,6 @@
     <string name="SignIN">Sign in</string>
     <string name="Forgot">Forgot Password ?</string>
     <string name="SignUP">Sign Up</string>
+    <string name="Request">Requests</string>
+    <string name="Around">From around you</string>
 </resources>
