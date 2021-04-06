@@ -1,5 +1,6 @@
 package com.example.lifeline;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -83,14 +84,15 @@ public class register_hosp extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Hospital hospital = new Hospital(name, email);
-                    FirebaseDatabase.getInstance().getReference("Hospitals")
+                    FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(hospital).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(register_hosp.this, "Donor has been registered Successfully!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(register_hosp.this, "Hospital has been registered Successfully!", Toast.LENGTH_LONG).show();
                                 progressBar2.setVisibility(View.GONE);
+                                startActivity(new Intent(register_hosp.this, hosp_home.class));
                             }
                             else{
                                 Toast.makeText(register_hosp.this, "Failed to Register!", Toast.LENGTH_LONG).show();

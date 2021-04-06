@@ -1,5 +1,6 @@
 package com.example.lifeline;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -108,7 +109,7 @@ public class register_donor extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Donor donor = new Donor(name, email, dob, phoneno, weight);
-                    FirebaseDatabase.getInstance().getReference("Donors")
+                    FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(donor).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -116,6 +117,7 @@ public class register_donor extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(register_donor.this, "Donor has been registered Successfully!", Toast.LENGTH_LONG).show();
                                 progressBar1.setVisibility(View.GONE);
+                                startActivity(new Intent(register_donor.this, donor_home.class));
                             }
                             else{
                                 Toast.makeText(register_donor.this, "Failed to Register!", Toast.LENGTH_LONG).show();

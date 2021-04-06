@@ -18,6 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class SignIn extends AppCompatActivity {
     private ImageView SignInBtn;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private DatabaseReference uidRef, rootRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,7 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.sign_in);
 
         mAuth = FirebaseAuth.getInstance();
+
         SignIn_email = findViewById(R.id.SignIn_email);
         SignIn_password = findViewById(R.id.SignIn_password);
         SignInBtn = findViewById(R.id.SignInBtn);
@@ -90,8 +98,9 @@ public class SignIn extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //Redirect
-                    Intent intent = new Intent(SignIn.this, donor_home.class);
-                    startActivity(intent);
+                    onAuthSuccess();
+                    //Intent intent = new Intent(SignIn.this, donor_home.class);
+                    //startActivity(intent);
                 }
                 else{
                     Toast.makeText(SignIn.this, "Failed To Login", Toast.LENGTH_LONG).show();
@@ -100,4 +109,28 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
+    private void onAuthSuccess(){
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        rootRef = FirebaseDatabase.getInstance().getReference();
+        uidRef = rootRef.child("Users").child(uid);
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child("type").getValue(Long.class) == 1){
+                    startActivity(new Intent(SignIn.this, donor_home.class));
+                }
+                else{
+                    startActivity(new Intent(SignIn.this, hosp_home.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        uidRef.addListenerForSingleValueEvent(valueEventListener);
+
+    }
 }

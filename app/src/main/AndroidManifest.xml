@@ -21,6 +21,7 @@
         <activity android:name=".register_hosp"/>
         <activity android:name=".donor_home"/>
         <activity android:name=".SignIn"/>
+        <activity android:name=".hosp_home"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -69,6 +69,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/name"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp" />
 
     <EditText
@@ -83,6 +84,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/email"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp"/>
 
     <EditText
@@ -97,6 +99,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/password"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp"/>
 
     <EditText
@@ -111,6 +114,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/dob"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp"/>
 
     <EditText
@@ -125,6 +129,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/phone"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp"/>
 
     <EditText
@@ -139,6 +144,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/weight"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:drawablePadding="10dp"/>
 
     <ProgressBar
