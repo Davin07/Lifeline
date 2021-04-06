@@ -26,7 +26,7 @@
         android:fontFamily="@font/lato_bold"
         android:text="@string/lifeline"
         android:textColor="#FF5555"
-        android:textSize="28dp"
+        android:textSize="28sp"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="133dp"
         android:layout_marginLeft="195dp"/>
@@ -38,7 +38,7 @@
         android:layout_height="50dp"
         android:fontFamily="@font/lato"
         android:text="@string/Save"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="173dp"
         android:lines="2"/>

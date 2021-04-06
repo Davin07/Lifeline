@@ -1,61 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="299sp"
         android:layout_height="280sp"
         android:contentDescription="@string/lifeline_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
         app:srcCompat="@drawable/drop_vector" />
 
     <TextView
         android:id="@+id/Home_Welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="22dp"
         android:fontFamily="@font/lato"
         android:text="@string/Welcome"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Home_Lifeline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/Home_Lifeline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="58dp"
         android:fontFamily="@font/lato_black"
         android:text="@string/lifeline"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/Home_Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.662" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Home_Welcome"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:id="@+id/Home_Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="131dp"
-        android:layout_marginBottom="43dp"
+        android:layout_width="307dp"
+        android:layout_height="44dp"
         android:fontFamily="@font/lato"
         android:text="@string/Save"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/RegisterBtnHome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:lines="2"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Home_Lifeline"
+        android:layout_marginTop="5dp"/>
 
     <Button
         android:id="@+id/RegisterBtnHome"
@@ -68,42 +61,32 @@
         android:textColor="#000000"
         android:textSize="24sp"
         app:backgroundTint="#FF5555"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.591"
-        android:hapticFeedbackEnabled="true"/>
+        android:hapticFeedbackEnabled="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Home_Save"
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:id="@+id/Home_Already"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:fontFamily="@font/lato"
         android:text="@string/already_have_an_account"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.361"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterBtnHome"
-        app:layout_constraintVertical_bias="0.504" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/RegisterBtnHome"
+        android:layout_marginTop="35dp" />
 
     <TextView
         android:id="@+id/Home_SignInText"
         android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="65dp"
+        android:layout_height="22dp"
         android:fontFamily="@font/lato_bold"
         android:text="@string/sign_in"
         android:textColor="#FF5555"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toEndOf="@+id/Home_Already"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterBtnHome"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Home_Already"
+        android:layout_marginTop="5dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
