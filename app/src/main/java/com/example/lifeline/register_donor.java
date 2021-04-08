@@ -23,7 +23,8 @@ public class register_donor extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText Register_Donor_name, Register_Donor_email,
             Register_Donor_password, Register_Donor_dob,
-            Register_Donor_phoneno, Register_Donor_weight;
+            Register_Donor_phoneno, Register_Donor_weight,
+            Register_Donor_height, Register_Donor_bloodtype;
     private Button DonorRegisterBtn;
     private ProgressBar progressBar1;
 
@@ -40,6 +41,8 @@ public class register_donor extends AppCompatActivity {
         Register_Donor_dob = findViewById(R.id.Register_Donor_dob);
         Register_Donor_phoneno = findViewById(R.id.Register_Donor_phoneno);
         Register_Donor_weight = findViewById(R.id.Register_Donor_weight);
+        Register_Donor_height = findViewById(R.id.Register_Donor_height);
+        Register_Donor_bloodtype = findViewById(R.id.Register_Donor_bloodtype);
         progressBar1 = findViewById(R.id.progressBar1);
 
         DonorRegisterBtn = findViewById(R.id.DonorRegisterBtn);
@@ -57,6 +60,10 @@ public class register_donor extends AppCompatActivity {
         String dob = Register_Donor_dob.getText().toString().trim();
         String phoneno = Register_Donor_phoneno.getText().toString().trim();
         String weight = Register_Donor_weight.getText().toString().trim();
+        String height = Register_Donor_height.getText().toString().trim();
+        String bloodtype = Register_Donor_bloodtype.getText().toString().trim();
+        int weight_num = Integer.parseInt(weight);
+        int height_num = Integer.parseInt(height);
 
         if (name.isEmpty()){
             Register_Donor_name.setError("Name is Required");
@@ -103,12 +110,30 @@ public class register_donor extends AppCompatActivity {
             Register_Donor_weight.requestFocus();
             return;
         }
+        if (height.isEmpty()){
+            Register_Donor_height.setError("Weight is Required");
+            Register_Donor_height.requestFocus();
+            return;
+        }
+
+        if(height_num < 163 && weight_num < 50){
+            Register_Donor_weight.setError("Weight doesn't meet criteria");
+            Register_Donor_weight.requestFocus();
+            return;
+        }
+
+        if(bloodtype.isEmpty()){
+            Register_Donor_bloodtype.setError("Blood Type is Required");
+            Register_Donor_bloodtype.requestFocus();
+            return;
+        }
+
         progressBar1.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_donor.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Donor donor = new Donor(name, email, dob, phoneno, weight);
+                    Donor donor = new Donor(name, email, dob, phoneno, weight, height, bloodtype);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(donor).addOnCompleteListener(new OnCompleteListener<Void>() {

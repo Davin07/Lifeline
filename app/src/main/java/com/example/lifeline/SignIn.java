@@ -33,6 +33,7 @@ public class SignIn extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private DatabaseReference uidRef, rootRef;
+    private TextView ForgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,18 @@ public class SignIn extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        ForgotPass = findViewById(R.id.ForgotPass);
         SignIn_email = findViewById(R.id.SignIn_email);
         SignIn_password = findViewById(R.id.SignIn_password);
         SignInBtn = findViewById(R.id.SignInBtn);
         progressBar = findViewById(R.id.progressBar);
+
+        ForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignIn.this, ForgotPassword.class));
+            }
+        });
 
         SignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override

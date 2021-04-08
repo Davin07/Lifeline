@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lifeline"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ForgotPassword"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,11 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".register_donor"/>
-        <activity android:name=".register_hosp"/>
-        <activity android:name=".donor_home"/>
-        <activity android:name=".SignIn"/>
-        <activity android:name=".hosp_home"/>
+        <activity android:name=".register_donor" />
+        <activity android:name=".register_hosp" />
+        <activity android:name=".donor_home" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".hosp_home" />
+        <activity android:name=".donor_profile" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -14,4 +14,11 @@
     <string name="SignUP">Sign Up</string>
     <string name="Request">Requests</string>
     <string name="Around">From around you</string>
+    <string name="Email">Email:</string>
+    <string name="DOB">DOB:</string>
+    <string name="Weight">Weight:</string>
+    <string name="Height">Height:</string>
+    <string name="PhoneNo">Phone No:</string>
+    <string name="Logout">Logout</string>
+    <string name="Reset">Reset Password</string>
 </resources>

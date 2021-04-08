@@ -1,159 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Welcome to -->
-    <TextView
-        android:id="@+id/Register_Donor_Welcome"
-        android:layout_width="170dp"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="133dp"
-        android:fontFamily="@font/lato"
-        android:text="@string/welcome2"
-        android:textSize="28sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- Lifeline Red -->
-    <TextView
-        android:id="@+id/Register_Donor_Lifeline2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="@string/lifeline"
-        android:textColor="#FF5555"
-        android:textSize="28sp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="133dp"
-        android:layout_marginLeft="195dp"/>
 
-    <!-- Save a life line -->
-    <TextView
-        android:id="@+id/Register_Donor_save2"
-        android:layout_width="321dp"
-        android:layout_height="50dp"
-        android:fontFamily="@font/lato"
-        android:text="@string/Save"
-        android:textSize="18sp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="173dp"
-        android:lines="2"/>
+        <!-- Lifeline Red -->
 
-    <Button
-        android:id="@+id/DonorRegisterBtn"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="630dp"
-        android:background="@drawable/rounded_corners"
-        android:fontFamily="@font/lato_black"
-        android:hapticFeedbackEnabled="true"
-        android:text="@string/register"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:backgroundTint="#FF5555" />
+        <TextView
+            android:id="@+id/Register_Donor_Welcome"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="132dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/welcome2"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.182"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Register_Donor_name"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="245dp"
-        android:hint="Name"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/name"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp" />
+        <!-- Save a life line -->
+        <TextView
+            android:id="@+id/Register_Donor_Lifeline2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="132dp"
+            android:layout_toEndOf="@+id/Register_Donor_Welcome"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/lifeline"
+            android:textColor="#FF5555"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/Register_Donor_Welcome"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Register_Donor_email"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:hint="Email"
-        android:layout_below="@+id/Register_Donor_name"
-        android:layout_marginTop="10dp"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/email"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp"/>
+        <TextView
+            android:id="@+id/Register_Donor_save2"
+            android:layout_width="321dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="172dp"
+            android:fontFamily="@font/lato"
+            android:lines="2"
+            android:text="@string/Save"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Register_Donor_password"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:hint="Password"
-        android:layout_below="@+id/Register_Donor_email"
-        android:layout_marginTop="10dp"
-        android:inputType="textPassword"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/password"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp"/>
+        <Button
+            android:id="@+id/DonorRegisterBtn"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_bloodtype"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="@font/lato_black"
+            android:hapticFeedbackEnabled="true"
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#FF5555"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_bloodtype" />
 
-    <EditText
-        android:id="@+id/Register_Donor_dob"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:hint="DOB"
-        android:layout_below="@+id/Register_Donor_password"
-        android:layout_marginTop="10dp"
-        android:inputType="datetime"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/dob"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp"/>
+        <EditText
+            android:id="@+id/Register_Donor_name"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/name"
+            android:drawablePadding="10dp"
+            android:hint="Name"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_save2" />
 
-    <EditText
-        android:id="@+id/Register_Donor_phoneno"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:hint="Phone No."
-        android:layout_below="@+id/Register_Donor_dob"
-        android:layout_marginTop="10dp"
-        android:inputType="number"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/phone"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp"/>
 
-    <EditText
-        android:id="@+id/Register_Donor_weight"
-        android:layout_width="344dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:hint="Weight"
-        android:layout_below="@+id/Register_Donor_phoneno"
-        android:layout_marginTop="10dp"
-        android:inputType="number"
-        android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/weight"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:drawablePadding="10dp"/>
+        <EditText
+            android:id="@+id/Register_Donor_email"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_name" />
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:progressBackgroundTint="#FF5555"/>
+        <EditText
+            android:id="@+id/Register_Donor_password"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_email" />
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/Register_Donor_dob"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/dob"
+            android:drawablePadding="10dp"
+            android:hint="DOB"
+            android:inputType="datetime"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_password" />
+
+        <EditText
+            android:id="@+id/Register_Donor_phoneno"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_dob"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:hint="Phone No."
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_dob" />
+
+        <EditText
+            android:id="@+id/Register_Donor_weight"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_phoneno"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/weight"
+            android:drawablePadding="10dp"
+            android:hint="Weight (in kgs)"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_phoneno" />
+
+        <EditText
+            android:id="@+id/Register_Donor_height"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Register_Donor_weight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/weight"
+            android:drawablePadding="10dp"
+            android:hint="Height (in cms)"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_weight" />
+
+        <EditText
+            android:id="@+id/Register_Donor_bloodtype"
+            android:layout_width="348dp"
+            android:layout_height="49dp"
+            android:layout_below="@+id/Register_Donor_height"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/hospital"
+            android:drawablePadding="10dp"
+            android:hint="Blood Type"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Register_Donor_height" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:progressBackgroundTint="#FF5555"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

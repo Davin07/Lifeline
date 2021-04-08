@@ -22,7 +22,7 @@ public class register_hosp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText Register_Hosp_name, Register_Hosp_email,
-            Register_Hosp_password;
+            Register_Hosp_password, Register_Hosp_phoneno, Register_Hosp_address;
     Button HospRegisterBtn;
     ProgressBar progressBar2;
 
@@ -36,6 +36,8 @@ public class register_hosp extends AppCompatActivity {
         Register_Hosp_name = findViewById(R.id.Register_Hosp_name);
         Register_Hosp_email = findViewById(R.id.Register_Hosp_email);
         Register_Hosp_password = findViewById(R.id.Register_Hosp_password);
+        Register_Hosp_phoneno = findViewById(R.id.Register_Hosp_phoneno);
+        Register_Hosp_address = findViewById(R.id.Register_Hosp_address);
         progressBar2 = findViewById(R.id.progressBar2);
 
         HospRegisterBtn = findViewById(R.id.HospRegisterBtn);
@@ -51,6 +53,8 @@ public class register_hosp extends AppCompatActivity {
         String name = Register_Hosp_name.getText().toString().trim();
         String email = Register_Hosp_email.getText().toString().trim();
         String password = Register_Hosp_password.getText().toString().trim();
+        String phoneno = Register_Hosp_phoneno.getText().toString().trim();
+        String address = Register_Hosp_address.getText().toString().trim();
 
         if (name.isEmpty()){
             Register_Hosp_name.setError("Name is Required");
@@ -77,13 +81,28 @@ public class register_hosp extends AppCompatActivity {
             Register_Hosp_password.requestFocus();
             return;
         }
+        if (phoneno.isEmpty()){
+            Register_Hosp_phoneno.setError("Phone No. is Required");
+            Register_Hosp_phoneno.requestFocus();
+            return;
+        }
+        if(phoneno.length() != 10){
+            Register_Hosp_phoneno.setError("Please Enter a Valid Phone. No.");
+            Register_Hosp_phoneno.requestFocus();
+            return;
+        }
+        if (address.isEmpty()){
+            Register_Hosp_address.setError("Phone No. is Required");
+            Register_Hosp_address.requestFocus();
+            return;
+        }
 
         progressBar2.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_hosp.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Hospital hospital = new Hospital(name, email);
+                    Hospital hospital = new Hospital(name, email, phoneno, address);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(hospital).addOnCompleteListener(new OnCompleteListener<Void>() {
