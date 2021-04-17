@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lifeline"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Hosp_BloodDeets"></activity>
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

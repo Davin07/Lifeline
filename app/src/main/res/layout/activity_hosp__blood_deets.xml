@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Hosp_BloodDeets">
+
+    <ImageView
+        android:id="@+id/ArrowDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/arrow_down" />
+
+    <TextView
+        android:id="@+id/Stock"
+        android:layout_width="108dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/BloodDeetsStock"
+        android:fontFamily="@font/lato_black"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ArrowDown"
+        app:layout_constraintVertical_bias="0.021"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/One"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Stock">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/hosp_card_bac">
+
+            <ImageView
+                android:id="@+id/HandleBarBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="20dp"
+                app:srcCompat="@drawable/handlebig" />
+
+            <TextView
+                android:id="@+id/HospCard_Bloodtype"
+                android:layout_width="53dp"
+                android:layout_height="44dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/HandleBarBig"
+                android:fontFamily="@font/lato_black"
+                android:text="A"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:id="@+id/Divider"
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="28dp"
+                app:srcCompat="@drawable/divider" />
+
+            <ImageView
+                android:id="@+id/Plus"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="40dp"
+                app:srcCompat="@drawable/plus"
+                android:layout_toRightOf="@+id/HospCard_Bloodtype"
+                android:layout_marginStart="1dp"/>
+
+            <ProgressBar
+                android:id="@+id/HospCard_PlusBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="40dp"
+                android:layout_toEndOf="@+id/HandleBarBig"
+                android:background="#FF5555"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="@color/black"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/Capacity"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="45dp"
+                android:layout_below="@+id/Divider"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBig"
+                android:text="@string/BloodDeetsCurrentC"
+                android:fontFamily="@font/lato"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/Used"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="45dp"
+                android:layout_below="@+id/Capacity"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBig"
+                android:text="@string/BloodDeetsUsed"
+                android:fontFamily="@font/lato"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/Donated"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="45dp"
+                android:layout_below="@+id/Used"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBig"
+                android:text="@string/BloodDeetsDonated"
+                android:fontFamily="@font/lato"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/CapacityEdit"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_toEndOf="@+id/Capacity"
+                android:layout_below="@+id/Divider"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:text="25"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <ImageButton
+                android:id="@+id/Increment1"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/plus"
+                android:layout_toEndOf="@+id/Used"
+                android:layout_below="@+id/Divider"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="70dp"
+                android:background="#FF5555"/>
+
+            <ImageButton
+                android:id="@+id/Increment2"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/plus"
+                android:layout_toEndOf="@+id/Donated"
+                android:layout_below="@+id/Increment1"
+                android:layout_marginStart="80dp"
+                android:background="#FF5555"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/UsedEdit"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:inputType="number"
+                android:layout_toEndOf="@+id/Used"
+                android:layout_below="@+id/CapacityEdit"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+
+            <EditText
+                android:id="@+id/DonatedEdit"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:inputType="number"
+                android:layout_toEndOf="@+id/Donated"
+                android:layout_below="@+id/UsedEdit"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Two"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="45dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/One">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/hosp_card_bac">
+
+            <ImageView
+                android:id="@+id/HandleBarBigN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="20dp"
+                app:srcCompat="@drawable/handlebig" />
+
+            <TextView
+                android:id="@+id/HospCard_BloodtypeN"
+                android:layout_width="53dp"
+                android:layout_height="44dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/HandleBarBigN"
+                android:fontFamily="@font/lato_black"
+                android:text="A"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:id="@+id/DividerN"
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="28dp"
+                app:srcCompat="@drawable/divider" />
+
+            <ImageView
+                android:id="@+id/Minus"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@+id/HospCard_BloodtypeN"
+                app:srcCompat="@drawable/minus" />
+
+            <ProgressBar
+                android:id="@+id/HospCard_MinusBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="40dp"
+                android:layout_toEndOf="@+id/HandleBarBigN"
+                android:background="#FF5555"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="@color/black"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/CapacityN"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/DividerN"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBigN"
+                android:fontFamily="@font/lato"
+                android:text="@string/BloodDeetsCurrentC"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/UsedN"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/CapacityN"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBigN"
+                android:fontFamily="@font/lato"
+                android:text="@string/BloodDeetsUsed"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/DonatedN"
+                android:layout_width="140dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/UsedN"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/HandleBarBigN"
+                android:fontFamily="@font/lato"
+                android:text="@string/BloodDeetsDonated"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/CapacityEditN"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/DividerN"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/CapacityN"
+                android:text="20"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/Increment1N"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/DividerN"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="70dp"
+                android:layout_toEndOf="@+id/UsedN"
+                android:background="#FF5555"
+                app:srcCompat="@drawable/plus" />
+
+            <ImageButton
+                android:id="@+id/Increment2N"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/Increment1N"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/DonatedN"
+                android:background="#FF5555"
+                app:srcCompat="@drawable/plus" />
+
+            <EditText
+                android:id="@+id/UsedEditN"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/CapacityEditN"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/UsedN"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <EditText
+                android:id="@+id/DonatedEditN"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/UsedEditN"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/DonatedN"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/HospDeetsConfirm"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:text="@string/BloodDeetsConfirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Two"
+        app:backgroundTint="#FF5555"
+        android:background="@drawable/rounded_corners"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/lato_black"
+        android:textSize="24sp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

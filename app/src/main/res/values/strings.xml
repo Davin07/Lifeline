@@ -21,4 +21,11 @@
     <string name="PhoneNo">Phone No:</string>
     <string name="Logout">Logout</string>
     <string name="Reset">Reset Password</string>
+    <string name="HospWelcome">Welcome Back !</string>
+    <string name="HospInven">Inventory Details</string>
+    <string name="BloodDeetsStock">STOCK</string>
+    <string name="BloodDeetsCurrentC">Current Capacity</string>
+    <string name="BloodDeetsUsed">Used</string>
+    <string name="BloodDeetsDonated">Donated</string>
+    <string name="BloodDeetsConfirm">CONFIRM</string>
 </resources>
