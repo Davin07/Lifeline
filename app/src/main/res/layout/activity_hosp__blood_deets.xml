@@ -111,7 +111,7 @@
                 android:id="@+id/Capacity"
                 android:layout_width="140dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="35dp"
                 android:layout_below="@+id/Divider"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBig"
@@ -125,7 +125,7 @@
                 android:id="@+id/Used"
                 android:layout_width="140dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="25dp"
                 android:layout_below="@+id/Capacity"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBig"
@@ -139,7 +139,7 @@
                 android:id="@+id/Donated"
                 android:layout_width="140dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="25dp"
                 android:layout_below="@+id/Used"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBig"
@@ -151,13 +151,12 @@
 
             <TextView
                 android:id="@+id/CapacityEdit"
-                android:layout_width="50dp"
+                android:layout_width="80dp"
                 android:layout_height="20dp"
                 android:layout_toEndOf="@+id/Capacity"
                 android:layout_below="@+id/Divider"
                 android:layout_marginTop="25dp"
                 android:layout_marginStart="25dp"
-                android:text="25"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textAlignment="center"/>
@@ -165,48 +164,68 @@
             <ImageButton
                 android:id="@+id/Increment1"
                 android:layout_width="20dp"
-                android:layout_height="25dp"
+                android:layout_height="20dp"
                 app:srcCompat="@drawable/plus"
+                android:layout_toEndOf="@+id/UsedText"
+                android:layout_below="@+id/Divider"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="70dp"
+                android:background="#FF5555"/>
+
+            <ImageButton
+                android:id="@+id/Decrement1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/minus"
                 android:layout_toEndOf="@+id/Used"
                 android:layout_below="@+id/Divider"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="70dp"
                 android:background="#FF5555"/>
 
             <ImageButton
                 android:id="@+id/Increment2"
                 android:layout_width="20dp"
-                android:layout_height="25dp"
+                android:layout_height="20dp"
                 app:srcCompat="@drawable/plus"
-                android:layout_toEndOf="@+id/Donated"
+                android:layout_toEndOf="@+id/DonatedText"
                 android:layout_below="@+id/Increment1"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="10dp"
                 android:background="#FF5555"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="25dp"/>
 
-            <EditText
-                android:id="@+id/UsedEdit"
+            <ImageButton
+                android:id="@+id/Decrement2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/minus"
+                android:layout_toEndOf="@+id/Donated"
+                android:layout_below="@+id/Decrement1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:background="#FF5555"/>
+
+            <TextView
+                android:id="@+id/UsedText"
                 android:layout_width="50dp"
                 android:layout_height="20dp"
-                android:inputType="number"
-                android:layout_toEndOf="@+id/Used"
+                android:layout_toEndOf="@+id/Decrement1"
                 android:layout_below="@+id/CapacityEdit"
                 android:layout_marginTop="25dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="10dp"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textAlignment="center"/>
 
 
-            <EditText
-                android:id="@+id/DonatedEdit"
+            <TextView
+                android:id="@+id/DonatedText"
                 android:layout_width="50dp"
                 android:layout_height="20dp"
-                android:inputType="number"
-                android:layout_toEndOf="@+id/Donated"
-                android:layout_below="@+id/UsedEdit"
+                android:layout_toEndOf="@+id/Decrement2"
+                android:layout_below="@+id/UsedText"
                 android:layout_marginTop="25dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="10dp"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textAlignment="center"/>
@@ -294,7 +313,7 @@
                 android:layout_width="140dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/DividerN"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="35dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBigN"
                 android:fontFamily="@font/lato"
@@ -308,7 +327,7 @@
                 android:layout_width="140dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/CapacityN"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBigN"
                 android:fontFamily="@font/lato"
@@ -322,7 +341,7 @@
                 android:layout_width="140dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/UsedN"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/HandleBarBigN"
                 android:fontFamily="@font/lato"
@@ -333,13 +352,12 @@
 
             <TextView
                 android:id="@+id/CapacityEditN"
-                android:layout_width="50dp"
+                android:layout_width="80dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/DividerN"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/CapacityN"
-                android:text="20"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -347,48 +365,68 @@
             <ImageButton
                 android:id="@+id/Increment1N"
                 android:layout_width="20dp"
-                android:layout_height="25dp"
+                android:layout_height="20dp"
                 android:layout_below="@+id/DividerN"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="70dp"
-                android:layout_toEndOf="@+id/UsedN"
+                android:layout_toEndOf="@+id/UsedTextN"
                 android:background="#FF5555"
                 app:srcCompat="@drawable/plus" />
 
             <ImageButton
+                android:id="@+id/Decrement1N"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/DividerN"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="70dp"
+                android:layout_toEndOf="@+id/UsedN"
+                android:background="#FF5555"
+                app:srcCompat="@drawable/minus" />
+
+            <ImageButton
                 android:id="@+id/Increment2N"
                 android:layout_width="20dp"
-                android:layout_height="25dp"
+                android:layout_height="20dp"
                 android:layout_below="@+id/Increment1N"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/DonatedN"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/DonatedTextN"
                 android:background="#FF5555"
                 app:srcCompat="@drawable/plus" />
 
-            <EditText
-                android:id="@+id/UsedEditN"
+            <ImageButton
+                android:id="@+id/Decrement2N"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/Decrement1N"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/DonatedN"
+                android:background="#FF5555"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/UsedTextN"
                 android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/CapacityEditN"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_toEndOf="@+id/UsedN"
-                android:inputType="number"
+                android:layout_toEndOf="@+id/Decrement1N"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
 
-            <EditText
-                android:id="@+id/DonatedEditN"
+            <TextView
+                android:id="@+id/DonatedTextN"
                 android:layout_width="50dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/UsedEditN"
-                android:layout_marginStart="25dp"
+                android:layout_below="@+id/UsedTextN"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_toEndOf="@+id/DonatedN"
-                android:inputType="number"
+                android:layout_toEndOf="@+id/Decrement2N"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />

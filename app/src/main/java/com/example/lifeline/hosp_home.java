@@ -1,10 +1,22 @@
 package com.example.lifeline;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -13,24 +25,56 @@ public class hosp_home extends AppCompatActivity {
     RecyclerView RV;
     private HospAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
+    private int AN, AP, BN, BP, ABP, ABN, OP, ON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hosp_home);
 
-        RV = findViewById(R.id.RV);
-        RV.setHasFixedSize(true);
-        RV.setLayoutManager(new LinearLayoutManager(this));
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = user.getUid();
 
-        HospDeet[] HospDeet = new HospDeet[]{
-                new HospDeet("A", 50, 40),
-                new HospDeet("B", 60, 50),
-                new HospDeet("AB", 100, 90),
-                new HospDeet("O", 90, 80),
-        };
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Hospital userprofile = snapshot.getValue(Hospital.class);
 
-        HospAdapter HospAdapter = new HospAdapter(HospDeet, hosp_home.this);
-        RV.setAdapter(HospAdapter);
+                if(userprofile != null){
+                    AN = userprofile.AN;
+                    AP = userprofile.AP;
+                    BP = userprofile.BP;
+                    BN = userprofile.BN;
+                    ABP = userprofile.ABP;
+                    ABN = userprofile.ABN;
+                    OP = userprofile.OP;
+                    ON = userprofile.ON;
+
+                    RV = findViewById(R.id.RV);
+                    RV.setHasFixedSize(true);
+                    RV.setLayoutManager(new LinearLayoutManager(hosp_home.this));
+
+                    HospDeet[] HospDeet = new HospDeet[]{
+                            new HospDeet("A", AP, AN),
+                            new HospDeet("B", BP, BN),
+                            new HospDeet("AB", ABP, ABN),
+                            new HospDeet("O", OP, ON),
+                    };
+
+                    HospAdapter HospAdapter = new HospAdapter(HospDeet, hosp_home.this);
+                    RV.setAdapter(HospAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(hosp_home.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }

@@ -4,6 +4,10 @@ public class HospDeet {
     private String BloodType;
     private int positive, negative;
 
+    public HospDeet(){
+
+    }
+
     public HospDeet(String bloodType, int positive, int negative) {
         BloodType = bloodType;
         this.positive = positive;
