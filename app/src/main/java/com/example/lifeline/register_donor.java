@@ -62,8 +62,7 @@ public class register_donor extends AppCompatActivity {
         String weight = Register_Donor_weight.getText().toString().trim();
         String height = Register_Donor_height.getText().toString().trim();
         String bloodtype = Register_Donor_bloodtype.getText().toString().trim();
-        int weight_num = Integer.parseInt(weight);
-        int height_num = Integer.parseInt(height);
+
 
         if (name.isEmpty()){
             Register_Donor_name.setError("Name is Required");
@@ -115,6 +114,8 @@ public class register_donor extends AppCompatActivity {
             Register_Donor_height.requestFocus();
             return;
         }
+        int weight_num = Integer.parseInt(weight);
+        int height_num = Integer.parseInt(height);
 
         if(height_num < 163 && weight_num < 50){
             Register_Donor_weight.setError("Weight doesn't meet criteria");
@@ -127,6 +128,7 @@ public class register_donor extends AppCompatActivity {
             Register_Donor_bloodtype.requestFocus();
             return;
         }
+
 
         progressBar1.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_donor.this, new OnCompleteListener<AuthResult>() {

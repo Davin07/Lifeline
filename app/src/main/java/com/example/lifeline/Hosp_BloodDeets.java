@@ -212,7 +212,7 @@ public class Hosp_BloodDeets extends AppCompatActivity {
 
                     Log.e("Bruh", type);
                     if(type.equals("A")){
-                        if(((AP-count1+count2) >= 0) && ((AN-count3+count4) >= 0)){
+                        if(((AP-count1+count2) >= 0) && ((AP-count1+count2) <= 100) && ((AN-count3+count4) >= 0) && ((AN-count3+count4) <= 100)){
                             reference.child(userID).child("AP").setValue(AP-count1+count2);
                             reference.child(userID).child("AN").setValue(AN-count3+count4);
                             Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
@@ -222,7 +222,7 @@ public class Hosp_BloodDeets extends AppCompatActivity {
                         }
                     }
                     else if(type.equals("B")){
-                        if(((BP-count1+count2) >= 0) && ((BN-count3+count4) >= 0)){
+                        if(((BP-count1+count2) >= 0) && ((BP-count1+count2) <= 100) && ((BN-count3+count4) >= 0) && ((BN-count3+count4) <= 100)){
                             reference.child(userID).child("BP").setValue(BP-count1+count2);
                             reference.child(userID).child("BN").setValue(BN-count3+count4);
                             Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
@@ -232,7 +232,7 @@ public class Hosp_BloodDeets extends AppCompatActivity {
                         }
                     }
                     else if(type.equals("AB")){
-                        if(((ABP-count1+count2) >= 0) && ((ABN-count3+count4) >= 0)){
+                        if(((ABP-count1+count2) >= 0) && ((ABP-count1+count2) <= 100) && ((ABN-count3+count4) >= 0) && ((ABN-count3+count4) <= 100)){
                             reference.child(userID).child("ABP").setValue(ABP-count1+count2);
                             reference.child(userID).child("ABN").setValue(ABN-count3+count4);
                             Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
@@ -242,7 +242,7 @@ public class Hosp_BloodDeets extends AppCompatActivity {
                         }
                     }
                     else if(type.equals("O")){
-                        if(((OP-count1+count2) >= 0) && ((ON-count3+count4) >= 0)){
+                        if(((OP-count1+count2) >= 0) && ((OP-count1+count2) <= 100) && ((ON-count3+count4) >= 0) && ((ON-count3+count4) <= 100)){
                             reference.child(userID).child("OP").setValue(OP-count1+count2);
                             reference.child(userID).child("ON").setValue(ON-count3+count4);
                             Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();

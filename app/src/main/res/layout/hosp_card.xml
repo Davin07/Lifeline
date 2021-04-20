@@ -37,11 +37,11 @@
             android:id="@+id/HospCard_PlusBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="224dp"
-            android:layout_height="6dp"
+            android:layout_height="10dp"
             android:layout_alignTop="@+id/Divider"
-            android:layout_marginStart="68dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/HandleBar"
+            android:layout_toEndOf="@+id/Plus"
             android:background="#FF5555"
             android:progressBackgroundTint="@color/white"
             android:progressTint="@color/black"
@@ -66,20 +66,20 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_alignTop="@+id/Divider"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="25dp"
             app:srcCompat="@drawable/plus"
             android:layout_toRightOf="@+id/HandleBar"
-            android:layout_marginStart="40dp"/>
+            android:layout_marginStart="30dp"/>
 
         <ProgressBar
             android:id="@+id/HospCard_MinusBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="224dp"
-            android:layout_height="6dp"
+            android:layout_height="10dp"
             android:layout_alignTop="@+id/HospCard_PlusBar"
-            android:layout_marginStart="68dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="45dp"
-            android:layout_toEndOf="@+id/HandleBar"
+            android:layout_toEndOf="@+id/Minus"
             android:background="#FF5555"
             android:progressBackgroundTint="@color/white"
             android:progressTint="@color/black"
@@ -93,8 +93,40 @@
             android:layout_marginTop="45dp"
             app:srcCompat="@drawable/minus"
             android:layout_toEndOf="@+id/HandleBar"
-            android:layout_marginStart="40dp"/>
+            android:layout_marginStart="30dp"/>
 
+        <ImageView
+            android:id="@+id/Alert"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/HospCard_Bloodtype"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/alert"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/PercentP"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:text="A"
+            android:textSize="12sp"
+            android:layout_toEndOf="@+id/HospCard_PlusBar"
+            android:layout_marginStart="5dp"
+            android:layout_below="@+id/Divider"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/PercentN"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:text="A"
+            android:textSize="12sp"
+            android:layout_toEndOf="@+id/HospCard_MinusBar"
+            android:layout_marginStart="5dp"
+            android:layout_below="@+id/PercentP"
+            android:layout_marginTop="30dp"/>
 
 
     </RelativeLayout>

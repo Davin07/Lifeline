@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,7 +45,7 @@ public class hosp_home extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        ImageButton Logout = findViewById(R.id.Logout);
+        TextView Logout = findViewById(R.id.Logout);
 
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +94,7 @@ public class hosp_home extends AppCompatActivity {
 
                     HospAdapter HospAdapter = new HospAdapter(HospDeet, hosp_home.this);
                     RV.setAdapter(HospAdapter);
+
                 }
             }
 
@@ -101,13 +104,5 @@ public class hosp_home extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    public void onRestart()
-    {
-        super.onRestart();
-        finish();
-        startActivity(getIntent());
     }
 }

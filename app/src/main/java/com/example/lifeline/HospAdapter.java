@@ -14,13 +14,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class HospAdapter extends RecyclerView.Adapter<HospAdapter.ViewHolder> {
 
     HospDeet[] HospDeet;
     Context context;
-
+    DatabaseReference reference;
 
     public HospAdapter(HospDeet[] HospDeet, hosp_home activity){
         this.HospDeet = HospDeet;
@@ -42,6 +47,13 @@ public class HospAdapter extends RecyclerView.Adapter<HospAdapter.ViewHolder> {
         holder.HospCard_Bloodtype.setText(HospDeetList.getBloodType());
         holder.HospCard_PlusBar.setProgress(HospDeetList.getPositive());
         holder.HospCard_MinusBar.setProgress(HospDeetList.getNegative());
+        holder.PercentP.setText(Integer.toString(HospDeetList.getPositive()));
+        holder.PercentN.setText(Integer.toString(HospDeetList.getNegative()));
+        if((HospDeetList.getPositive() < 40) || (HospDeetList.getNegative() < 40)){
+            holder.Alert.setVisibility(View.VISIBLE);
+        }
+
+
 
         //On-Click for each ItemView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +76,8 @@ public class HospAdapter extends RecyclerView.Adapter<HospAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView HandleBar, Divider;
-        TextView HospCard_Bloodtype;
+        ImageView HandleBar, Divider, Alert;
+        TextView HospCard_Bloodtype, PercentP, PercentN;
         ProgressBar HospCard_PlusBar, HospCard_MinusBar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +86,9 @@ public class HospAdapter extends RecyclerView.Adapter<HospAdapter.ViewHolder> {
             HospCard_Bloodtype = itemView.findViewById(R.id.HospCard_Bloodtype);
             HospCard_PlusBar = itemView.findViewById(R.id.HospCard_PlusBar);
             HospCard_MinusBar = itemView.findViewById(R.id.HospCard_MinusBar);
+            Alert = itemView.findViewById(R.id.Alert);
+            PercentP = itemView.findViewById(R.id.PercentP);
+            PercentN = itemView.findViewById(R.id.PercentN);
         }
     }
 
