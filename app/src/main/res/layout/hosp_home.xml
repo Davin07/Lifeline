@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/RefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV"
@@ -14,8 +19,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="150dp"/>
+        android:layout_alignParentBottom="true"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/HospHomeWelcome"
@@ -44,6 +50,16 @@
         android:textSize="24sp"
         android:layout_below="@+id/HospHomeWelcome"
         android:layout_marginTop="5dp"/>
+
+    <ImageButton
+        android:id="@+id/Logout"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logout"
+        android:layout_marginStart="330dp"/>
 
 
 </RelativeLayout>

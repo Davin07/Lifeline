@@ -1,9 +1,11 @@
 package com.example.lifeline;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,8 +16,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Hosp_BloodDeets extends AppCompatActivity {
 
@@ -27,12 +32,15 @@ public class Hosp_BloodDeets extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-    int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+    int count1, count2, count3, count4;
+    int AP, AN, BN, BP, ABN, ABP, OP, ON, check;
+    String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hosp__blood_deets);
-
+        count1 = 0; count2 = 0; count3 = 0; count4 = 0; check = 0;
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
@@ -65,6 +73,7 @@ public class Hosp_BloodDeets extends AppCompatActivity {
         DonatedText.setText(Integer.toString(count2));
         UsedTextN.setText(Integer.toString(count3));
         DonatedTextN.setText(Integer.toString(count4));
+
 
         Increment1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +154,15 @@ public class Hosp_BloodDeets extends AppCompatActivity {
             }
         });
 
+
+        HospDeetsConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                update();
+            }
+        });
+
     }
 
     private void getIncomingIntent() {
@@ -164,6 +182,8 @@ public class Hosp_BloodDeets extends AppCompatActivity {
         HospCard_MinusBar = findViewById(R.id.HospCard_MinusBar);
         CapacityEdit = findViewById(R.id.CapacityEdit);
         CapacityEditN = findViewById(R.id.CapacityEditN);
+        type = Btype;
+        Log.e("Bruh", type);
 
         HospCard_Bloodtype.setText(Btype);
         HospCard_BloodtypeN.setText(Btype);
@@ -171,5 +191,75 @@ public class Hosp_BloodDeets extends AppCompatActivity {
         HospCard_MinusBar.setProgress(N);
         CapacityEdit.setText(Integer.toString(P));
         CapacityEditN.setText(Integer.toString(N));
+    }
+
+    private void update(){
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Hospital userprofile = snapshot.getValue(Hospital.class);
+
+                if(userprofile != null){
+                    AP = userprofile.AP;
+                    AN = userprofile.AN;
+                    BP = userprofile.BP;
+                    BN = userprofile.BN;
+                    ABP = userprofile.ABP;
+                    ABN = userprofile.ABN;
+                    OP = userprofile.OP;
+                    ON = userprofile.ON;
+
+                    Log.e("Bruh", type);
+                    if(type.equals("A")){
+                        if(((AP-count1+count2) >= 0) && ((AN-count3+count4) >= 0)){
+                            reference.child(userID).child("AP").setValue(AP-count1+count2);
+                            reference.child(userID).child("AN").setValue(AN-count3+count4);
+                            Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Hosp_BloodDeets.this, "Cannot Update Values! Please check your value again.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else if(type.equals("B")){
+                        if(((BP-count1+count2) >= 0) && ((BN-count3+count4) >= 0)){
+                            reference.child(userID).child("BP").setValue(BP-count1+count2);
+                            reference.child(userID).child("BN").setValue(BN-count3+count4);
+                            Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Hosp_BloodDeets.this, "Cannot Update Values! Please check your value again.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else if(type.equals("AB")){
+                        if(((ABP-count1+count2) >= 0) && ((ABN-count3+count4) >= 0)){
+                            reference.child(userID).child("ABP").setValue(ABP-count1+count2);
+                            reference.child(userID).child("ABN").setValue(ABN-count3+count4);
+                            Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Hosp_BloodDeets.this, "Cannot Update Values! Please check your value again.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else if(type.equals("O")){
+                        if(((OP-count1+count2) >= 0) && ((ON-count3+count4) >= 0)){
+                            reference.child(userID).child("OP").setValue(OP-count1+count2);
+                            reference.child(userID).child("ON").setValue(ON-count3+count4);
+                            Toast.makeText(Hosp_BloodDeets.this, "Successfully Updated!", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Hosp_BloodDeets.this, "Cannot Update Values! Please check your values again.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Hosp_BloodDeets.this, "Unable to retrieve data", Toast.LENGTH_LONG).show();
+            }
+        });
+
+            startActivity(new Intent(Hosp_BloodDeets.this, hosp_home.class));
     }
 }

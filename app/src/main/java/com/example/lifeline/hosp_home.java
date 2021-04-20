@@ -3,12 +3,16 @@ package com.example.lifeline;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +42,27 @@ public class hosp_home extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
+
+        ImageButton Logout = findViewById(R.id.Logout);
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(hosp_home.this, SignIn.class));
+            }
+        });
+
+
+        SwipeRefreshLayout RefreshLayout = findViewById(R.id.RefreshLayout);
+
+        RefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                finish();;
+                startActivity(getIntent());
+            }
+        });
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -76,5 +101,13 @@ public class hosp_home extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
     }
 }
