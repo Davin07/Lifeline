@@ -12,52 +12,42 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.ViewHolder> {
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-    DonDeet[] DonDeet;
-    Context context;
+public class DonorAdapter extends FirebaseRecyclerAdapter<DonDeet, DonorAdapter.myViewHolder> {
 
+    public DonorAdapter(@NonNull FirebaseRecyclerOptions<DonDeet> options) {
+        super(options);
+    }
 
-    public DonorAdapter(DonDeet[] DonDeet, donor_home activity){
-        this.DonDeet = DonDeet;
-        this.context = activity;
+    @Override
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull DonDeet model) {
+        holder.DCard_Bloodtype.setText(model.getBlood());
+        holder.HospName.setText(model.getName());
+        holder.HospAddress.setText(model.getAddress());
+        holder.PhoneHospNo.setText(model.getPhoneno());
+        if(model.getType().equals("Positive")){
+            holder.type.setBackgroundResource(R.drawable.plus);
+        }
+        else if(model.getType().equals("Negative")){
+            holder.type.setBackgroundResource(R.drawable.minus);
+        }
     }
 
     @NonNull
     @Override
-    public DonorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.donate_card, parent, false);
-        DonorAdapter.ViewHolder viewHolder = new DonorAdapter.ViewHolder(view);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull DonorAdapter.ViewHolder holder, int position) {
-        final DonDeet DonDeetList = DonDeet[position];
-        holder.DCard_Bloodtype.setText(DonDeetList.getBlood());
-        holder.HospName.setText(DonDeetList.getName());
-        holder.HospAddress.setText(DonDeetList.getAddress());
-        holder.PhoneHospNo.setText(DonDeetList.getPhoneno());
-        if(DonDeetList.getBtype().equals("Positive")){
-            holder.type.setBackgroundResource(R.drawable.plus);
-        }
-        else if(DonDeetList.getBtype().equals("Negative")){
-            holder.type.setBackgroundResource(R.drawable.minus);
-        }
+    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donate_card, parent, false);
+        return new myViewHolder(view);
 
     }
 
-    @Override
-    public int getItemCount() {
-        return DonDeet.length;
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class myViewHolder extends RecyclerView.ViewHolder{
 
         ImageView HandleBarD, DividerD, PhoneHosp, type;
         TextView DCard_Bloodtype, HospAddress, PhoneHospNo, HospName;
-        public ViewHolder(@NonNull View itemView) {
+        public myViewHolder(@NonNull View itemView) {
             super(itemView);
             HospName = itemView.findViewById(R.id.HospName);
             HandleBarD = itemView.findViewById(R.id.HandleBar);
@@ -70,4 +60,6 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.ViewHolder> 
 
         }
     }
+
+
 }

@@ -53,8 +53,6 @@ public class HospAdapter extends RecyclerView.Adapter<HospAdapter.ViewHolder> {
             holder.Alert.setVisibility(View.VISIBLE);
         }
 
-
-
         //On-Click for each ItemView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

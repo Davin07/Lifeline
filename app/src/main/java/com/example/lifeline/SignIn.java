@@ -113,6 +113,7 @@ public class SignIn extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(SignIn.this, "Failed To Login", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });

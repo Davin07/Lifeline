@@ -1,57 +1,57 @@
 package com.example.lifeline;
 
 public class DonDeet {
-    private String Address, Blood, Btype, Name, Phoneno;
+    String address, blood, name, phoneno, type;
 
     public DonDeet(){
 
     }
 
-    public DonDeet(String address, String blood, String btype, String name, String phoneno) {
-        Address = address;
-        Blood = blood;
-        Btype = btype;
-        Name = name;
-        Phoneno = phoneno;
+    public DonDeet(String address, String blood, String name, String phoneno, String type) {
+        this.address = address;
+        this.blood = blood;
+        this.name = name;
+        this.phoneno = phoneno;
+        this.type = type;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getBlood() {
-        return Blood;
+        return blood;
     }
 
     public void setBlood(String blood) {
-        Blood = blood;
-    }
-
-    public String getBtype() {
-        return Btype;
-    }
-
-    public void setBtype(String btype) {
-        Btype = btype;
+        this.blood = blood;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPhoneno() {
-        return Phoneno;
+        return phoneno;
     }
 
     public void setPhoneno(String phoneno) {
-        Phoneno = phoneno;
+        this.phoneno = phoneno;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
