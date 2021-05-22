@@ -4,27 +4,27 @@
 ## Screenshots
 
 ### Home Page
-![Home Page](https://imgur.com/Oz3aSWM)
+![Imgur](https://i.imgur.com/Oz3aSWM.png)
 
 ### Register
-![Register 1](https://imgur.com/ukCMHR7)
-![Register 2](https://imgur.com/NlQXiPD)
-![Register 3](https://imgur.com/esOpxHR)
+![Imgur](https://i.imgur.com/ukCMHR7.png)
+![Imgur](https://i.imgur.com/NlQXiPD.png)
+![Imgur](https://i.imgur.com/esOpxHR.png)
 
 ### Forgot Password
-![Forgot Password](https://imgur.com/nCAMAUm)
+![Imgur](https://i.imgur.com/nCAMAUm.png)
 
 ### Sign In
-![Sign In](https://imgur.com/DURXzkL)
+![Imgur](https://i.imgur.com/DURXzkL.png)
 
 ### Donor Feed
-![Donor Feed](https://imgur.com/wbtsZqa)
+![Imgur](https://i.imgur.com/wbtsZqa.png)
 
 ### Donor Profile
-![Donor Profile](https://imgur.com/PnSdrET)
+![Imgur](https://i.imgur.com/PnSdrET.png)
 
 ### Hospital Home
-![Hospital Home](https://imgur.com/75WCBm8)
+![Imgur](https://i.imgur.com/75WCBm8.png)
 
 ### Blood Inventory
-![Blood Inventory](https://imgur.com/XycUnX4)
+![Imgur](https://i.imgur.com/XycUnX4.png)
