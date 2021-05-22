@@ -11,7 +11,7 @@
 ### Register
 <p align="center">
   <img src="https://i.imgur.com/ukCMHR7.png" width="378" height="677" title="Register"><
-  img src="https://i.imgur.com/NlQXiPD.png" width="378" height="677" title="Register">
+  <img src="https://i.imgur.com/NlQXiPD.png" width="378" height="677" title="Register">
   <img src="https://i.imgur.com/esOpxHR.png" width="378" height="677" title="Register">
 </p>
 
