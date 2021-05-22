@@ -25,7 +25,7 @@ public class register_donor extends AppCompatActivity {
             Register_Donor_password, Register_Donor_dob,
             Register_Donor_phoneno, Register_Donor_weight,
             Register_Donor_height, Register_Donor_bloodtype;
-    private Button DonorRegisterBtn;
+    private Button DonorRegisterBtn, Switch2;
     private ProgressBar progressBar1;
 
     @Override
@@ -44,6 +44,15 @@ public class register_donor extends AppCompatActivity {
         Register_Donor_height = findViewById(R.id.Register_Donor_height);
         Register_Donor_bloodtype = findViewById(R.id.Register_Donor_bloodtype);
         progressBar1 = findViewById(R.id.progressBar1);
+
+        Switch2 = findViewById(R.id.Switch2);
+        Switch2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(register_donor.this, register_hosp.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
 
         DonorRegisterBtn = findViewById(R.id.DonorRegisterBtn);
         DonorRegisterBtn.setOnClickListener(new View.OnClickListener() {

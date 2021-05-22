@@ -6,6 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+        <ImageView
+            android:id="@+id/SwitchBar"
+            android:layout_width="265dp"
+            android:layout_height="43dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/border"
+            android:layout_marginTop="50dp"/>
+
+        <Button
+            android:id="@+id/Switch1"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/rounded_corners"
+            app:backgroundTint="@android:color/black"
+            android:fontFamily="@font/lato"
+            android:text="@string/switch1"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.265"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/Switch2"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/rounded_corners"
+            app:backgroundTint="#FF5555"
+            android:fontFamily="@font/lato"
+            android:text="@string/switch2"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.740"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Welcome to -->
         <TextView
             android:id="@+id/Register_Donor_Welcome"

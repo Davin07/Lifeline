@@ -23,7 +23,7 @@ public class register_hosp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText Register_Hosp_name, Register_Hosp_email,
             Register_Hosp_password, Register_Hosp_phoneno, Register_Hosp_address;
-    Button HospRegisterBtn;
+    Button HospRegisterBtn, Switch1;
     ProgressBar progressBar2;
 
     @Override
@@ -39,6 +39,16 @@ public class register_hosp extends AppCompatActivity {
         Register_Hosp_phoneno = findViewById(R.id.Register_Hosp_phoneno);
         Register_Hosp_address = findViewById(R.id.Register_Hosp_address);
         progressBar2 = findViewById(R.id.progressBar2);
+
+        Switch1 = findViewById(R.id.Switch1);
+        Switch1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(register_hosp.this, register_donor.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        });
+
 
         HospRegisterBtn = findViewById(R.id.HospRegisterBtn);
         HospRegisterBtn.setOnClickListener(new View.OnClickListener() {

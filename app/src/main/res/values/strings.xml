@@ -28,4 +28,6 @@
     <string name="BloodDeetsUsed">Used</string>
     <string name="BloodDeetsDonated">Donated</string>
     <string name="BloodDeetsConfirm">CONFIRM</string>
+    <string name="switch1">DONOR</string>
+    <string name="switch2">HOSPITAL</string>
 </resources>
