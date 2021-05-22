@@ -28,3 +28,7 @@
 
 ### Blood Inventory
 ![Imgur](https://i.imgur.com/XycUnX4.png)
+
+<p align="center">
+  <img src="https://i.imgur.com/XycUnX4.png" width="350" height="750" title="hover text">
+</p>
