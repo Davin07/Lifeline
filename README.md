@@ -4,6 +4,10 @@
 ## Screenshots
 
 ### Home Page
+<p align="center">
+  <img src="https://i.imgur.com/Oz3aSWM.png" width="378" height="677" title="hover text">
+</p>
+
 ![Imgur](https://i.imgur.com/Oz3aSWM.png)
 
 ### Register
@@ -30,5 +34,5 @@
 ![Imgur](https://i.imgur.com/XycUnX4.png)
 
 <p align="center">
-  <img src="https://i.imgur.com/XycUnX4.png" width="350" height="750" title="hover text">
+  <img src="https://i.imgur.com/XycUnX4.png" width="378" height="667" title="hover text">
 </p>
