@@ -49,7 +49,9 @@ public class register_donor extends AppCompatActivity {
         Switch2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(register_donor.this, register_hosp.class));
+                Intent intent = new Intent(register_donor.this, register_hosp.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
@@ -153,7 +155,10 @@ public class register_donor extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(register_donor.this, "Donor has been registered Successfully!", Toast.LENGTH_LONG).show();
                                 progressBar1.setVisibility(View.GONE);
-                                startActivity(new Intent(register_donor.this, donor_home.class));
+                                Intent intent = new Intent(register_donor.this, donor_home.class);
+                                //intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                                finish();
                             }
                             else{
                                 Toast.makeText(register_donor.this, "Failed to Register!", Toast.LENGTH_LONG).show();

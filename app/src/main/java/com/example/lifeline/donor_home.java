@@ -44,6 +44,7 @@ public class donor_home  extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(donor_home.this, SignIn.class));
+                finish();
             }
         });
 

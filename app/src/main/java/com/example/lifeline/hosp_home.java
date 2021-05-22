@@ -53,6 +53,7 @@ public class hosp_home extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(hosp_home.this, SignIn.class));
+                finish();
             }
         });
 

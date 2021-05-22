@@ -68,6 +68,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignIn.this, register_hosp.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
@@ -128,10 +129,16 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child("type").getValue(Long.class) == 1){
-                    startActivity(new Intent(SignIn.this, donor_home.class));
+                    Intent intent  = new Intent(SignIn.this, donor_home.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    startActivity(intent);
+                    finish();
                 }
                 else{
-                    startActivity(new Intent(SignIn.this, hosp_home.class));
+                    Intent intent = new Intent(SignIn.this, hosp_home.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    startActivity(intent);
+                    finish();
                 }
             }
 

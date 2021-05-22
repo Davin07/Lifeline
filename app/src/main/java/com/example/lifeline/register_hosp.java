@@ -44,7 +44,9 @@ public class register_hosp extends AppCompatActivity {
         Switch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(register_hosp.this, register_donor.class));
+                Intent intent = new Intent(register_hosp.this, register_donor.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
@@ -121,7 +123,10 @@ public class register_hosp extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(register_hosp.this, "Hospital has been registered Successfully!", Toast.LENGTH_LONG).show();
                                 progressBar2.setVisibility(View.GONE);
-                                startActivity(new Intent(register_hosp.this, hosp_home.class));
+                                Intent intent = new Intent(register_hosp.this, hosp_home.class);
+                                //intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                                finish();
                             }
                             else{
                                 Toast.makeText(register_hosp.this, "Failed to Register!", Toast.LENGTH_LONG).show();
